@@ -27,10 +27,8 @@ var playstationLink = '&parent_platforms=2';
 var pcLink = '&parent_platforms=1';
 var xboxLink = '&parent_platforms=3';
 var nintendoLink = '&parent_platforms=7';
-var starterLink = 'https://api.rawg.io/api/games?key=7fe5813e90774b17a77f1b43d96e25df&page_size=1';
-var firstkey = 'key=7fe5813e90774b17a77f1b43d96e25df';
-var secondkey = 'ed4c3a730c6d8c953a25e42e9f7cb10f41f5b0c5';
-
+var starterLink = 'https://api.rawg.io/api/games?key=b30d6334305c449fa022945f70b5f0d9&page_size=1';
+var firstkey = 'key=b30d6334305c449fa022945f70b5f0d9';
 
 window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
@@ -42,7 +40,7 @@ window.addEventListener("load", (event) => {
 });
 
 function getTen(data) {
-    fetch('https://api.rawg.io/api/games?key=7fe5813e90774b17a77f1b43d96e25df&page_size=10&dates=2022-01-01,2022-12-31&ordering=-added')
+    fetch('https://api.rawg.io/api/games?key=b30d6334305c449fa022945f70b5f0d9&page_size=10&dates=2022-01-01,2022-12-31&ordering=-added')
         .then(function (response) {
             return response.json();
         })
@@ -57,7 +55,7 @@ function getTen(data) {
         })
 };
 function getTenMore(data) {
-    fetch('https://api.rawg.io/api/games?key=7fe5813e90774b17a77f1b43d96e25df&page_size=10&dates=2022-01-01,2022-11-30&metacritic=88,100&ordering=-metacritic')
+    fetch('https://api.rawg.io/api/games?key=b30d6334305c449fa022945f70b5f0d9&page_size=10&dates=2022-01-01,2022-11-30&metacritic=88,100&ordering=-metacritic')
         .then(function (response) {
             return response.json();
         })
@@ -91,7 +89,7 @@ function randomGame() {
     var sportsLink = '&genres=sports';
     var platformerLink = '&genres=platformer';
     var strategyLink = '&genres=strategy';
-    var starterLink = 'https://api.rawg.io/api/games?key=7fe5813e90774b17a77f1b43d96e25df';
+    var starterLink = 'https://api.rawg.io/api/games?key=b30d6334305c449fa022945f70b5f0d9';
     if (platformpick.value === 'playstation') {
         starterLink = starterLink + playstationLink
     } else if (platformpick.value === 'pc') {
@@ -138,15 +136,7 @@ function randomGame() {
             localStorage.setItem('game', random1.name);
         })
 };
-function getNews() {
-    fetch('http://www.gamespot.com/api/articles/?api_key=ed4c3a730c6d8c953a25e42e9f7cb10f41f5b0c5&limit=10')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data)
-        })
-}
+
 getTen();
 getTenMore();
 generateBtn.addEventListener('click', randomGame);
